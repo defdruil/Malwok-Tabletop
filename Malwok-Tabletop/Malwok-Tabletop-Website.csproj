@@ -28,12 +28,15 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Views\PlaylistsView.html" />
+    <Content Include="Views\CategoriesView.html" />
+    <Content Include="Views\ScenesView.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="Controllers\CategoriesController.ts" />
     <TypeScriptCompile Include="Controllers\MainController.ts" />
+    <TypeScriptCompile Include="Controllers\ScenesController.ts" />
     <TypeScriptCompile Include="Models\Playlist.ts" />
     <TypeScriptCompile Include="Models\Scene.ts" />
     <TypeScriptCompile Include="Models\Singleton\ScenesSingleton.ts" />
