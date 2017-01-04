@@ -1,21 +1,15 @@
-﻿'use strict'
-class MainController {
+﻿module Malwok.Tabletop.Website {
+    export class MainController {
+        //Injection de dépendances
+        static $inject = ['ScenesSingleton'];
 
-    public HelloWorld: string = "Hello World from Controller !";
-    public Data: string = "Je suis une data importante !";
-    public classToDisplay: boolean = true;
-    public soundList: string[];
+        // Singleton des scènes (All datas)
+        public _scenesSingleton: ScenesSingleton;
 
-    constructor() {
 
+        constructor(scenesSingleton: ScenesSingleton) {
+            this._scenesSingleton = scenesSingleton;
+        }
     }
-
-    buttonClick(): void {
-        this.HelloWorld = "I've changed !";
-    }
-
-    InvertClassToDisplay() {
-        this.classToDisplay = !this.classToDisplay;
-    }
+    app.controller("MainController", MainController);
 }
-app.controller("MainController", MainController);

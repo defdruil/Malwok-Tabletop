@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malwok-Tabletop-Website", "Malwok-Tabletop\Malwok-Tabletop-Website.csproj", "{2D575710-971E-40A6-845E-3BC5920EBC37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D6259B40-9B53-4F56-A41A-4AF79EB046C6}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malwok-Tabletop-API", "Malwok-Tabletop-API\Malwok-Tabletop-API.csproj", "{30FDAEE0-B75C-4153-B14A-012D37F6B92C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{2D575710-971E-40A6-845E-3BC5920EBC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D575710-971E-40A6-845E-3BC5920EBC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D575710-971E-40A6-845E-3BC5920EBC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

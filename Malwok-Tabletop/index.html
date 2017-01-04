@@ -10,21 +10,9 @@
     <script src="Controllers/MainController.js"></script>
 </head>
 <body ng-app="app">
-    <div id="content" ng-controller="MainController as ctrl" ng-init="classToDisplay = true">
-        <h1 ng-click="ctrl.buttonClick()">TypeScript HTML App</h1>
-        <h2 ng-bind="ctrl.HelloWorld"></h2>
-        <p>{{ctrl.Data}}</p>
-        <div ng-view="./view/PlaylistView.html"></div>
+    <div id="content" ng-controller="MainController as ctrl">
 
-        <button ng-click="ctrl.buttonClick(); " type="button" class="btn btn-danger" aria-label="Left Align">Bouton
-        </button>
-        <button ng-click="classToDisplay = !classToDisplay;" type="button" class="btn" aria-label="Left Align">
-            Bouton
-        </button>
-        <button type="button" class="btn" aria-label="Left Align" ng-class="{ 'btn-danger': ctrl.classToDisplay, 'btn-Primary': !ctrl.classToDisplay }">
-            <div><i class="glyphicon glyphicon-search"></i></div>Bouton
-        </button>
-        <h2 ng-class="{ 'hidden': ctrl.classToDisplay }">I appeared !</h2>
+        <div ng-view="./view/ScenesView.html"></div>
     </div>
 </body>
 </html>
