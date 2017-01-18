@@ -1,6 +1,17 @@
-﻿<div class="row" ng-controller="CategoriesController as CategoriesCtrl">
+﻿﻿<div class="row" ng-controller="CategoriesController as CategoriesCtrl">
     <div class="col-md-12">
         {{CategoriesCtrl.test}} - From CategoriesController
         <div class="row" ng-repeat="category in CategoriesCtrl.ScenesSingleton.Scenes">test</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12" ng-init="console.log(CategoriesCtrl);">
+        laaaaa
+        {{CategoriesCtrl.truc}}
+        <div ng-repeat="playlist in CategoriesCtrl.ScenesSingleton.Scenes">
+            {{playlist.Name}} Hello
+
+
+        </div>
     </div>
 </div>
