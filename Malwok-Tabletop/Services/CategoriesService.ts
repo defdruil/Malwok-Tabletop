@@ -6,9 +6,9 @@
 
         public playLists: Playlist[] =
         [
-            { Id: 1, Name: "Ambiance", Sounds: this.Ambiances },
-            { Id: 2, Name: "Sword", Sounds: this.Swords },
-            { Id: 3, Name: "Spell", Sounds: this.Spells },
+            { Id: 1, Name: "Ambiance", Sounds: this.Ambiances, Volume:50 },
+            { Id: 2, Name: "Sword", Sounds: this.Swords, Volume: 50 },
+            { Id: 3, Name: "Spell", Sounds: this.Spells, Volume: 50 }
 
         ]
 

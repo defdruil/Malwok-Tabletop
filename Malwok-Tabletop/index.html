@@ -10,9 +10,8 @@
 </head>
 <body ng-app="app">
     <div id="content" ng-controller="MainController as ctrl">
-
-        <div ng-view="./View/ScenesView.html"></div>
-        <div ng-view="./View/CategoriesView.html"></div>
+        <!--<div ng-view="./View/ScenesView.html"></div>-->
+        <div ng-include="'Views/CategoriesView.html'"></div>
     </div>
 </body>
 </html>

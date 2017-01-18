@@ -6,7 +6,7 @@ var Malwok;
         (function (Website) {
             var MainController = (function () {
                 function MainController(scenesSingleton) {
-                    this._scenesSingleton = scenesSingleton;
+                    this.ScenesSingleton = scenesSingleton;
                 }
                 //Injection de dépendances
                 MainController.$inject = ['ScenesSingleton'];

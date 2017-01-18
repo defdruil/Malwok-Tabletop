@@ -4,10 +4,10 @@
         static $inject = ['ScenesSingleton'];
 
         // Singleton des scènes (All datas)
-        public _scenesSingleton: ScenesSingleton;
+        public ScenesSingleton: ScenesSingleton;
 
         constructor(scenesSingleton: ScenesSingleton) {
-            this._scenesSingleton = scenesSingleton;
+            this.ScenesSingleton = scenesSingleton;
         }
     }
     app.controller("MainController", MainController);
