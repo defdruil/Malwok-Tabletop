@@ -3,5 +3,6 @@
     export interface Sound {
         Name: Playlist;
         Id: number;
+        path: string;
     }
 }

@@ -1,7 +1,7 @@
 ﻿module Malwok.Tabletop.Website {
     'use strict'
     export interface Playlist {
-        Name: Playlist;
+        Name: string;
         Id: number;
         Sounds: Sound[];
     }

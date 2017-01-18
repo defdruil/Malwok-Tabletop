@@ -1,6 +1,6 @@
 ﻿module Malwok.Tabletop.Website {
     export interface Scene {
-        Name: Playlist;
+        Name: string;
         Id: number;
         Playlists: Playlist[];
     }
