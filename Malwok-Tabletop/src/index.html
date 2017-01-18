@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Malwok Tabletop Audio</title>
+    <title>Malwok PLS Audio</title>
     <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css" type="text/css" />
     <script type="text/javascript" src="..\node_modules\angular\angular.min.js"></script>
     <script src="..\dist\app.js"></script>
@@ -11,10 +11,8 @@
 <body ng-app="app">
     <div id="content" ng-controller="MainController as ctrl" class="container">
         <div class="row">
-            <div class="col-md-3" ng-include="'Views/CategoriesView.html'"></div>
-            <div class="col-md-9">
-                <div ng-include="'Views/ScenesView.html'"></div>
-            </div>
+            <div class="col-xs-3 col-md-3" ng-include="'Views/CategoriesView.html'"></div>
+            <div class="col-xs-9 col-md-9" ng-include="'Views/ScenesView.html'"></div> 
         </div>
         <footer>
             <hr/>

@@ -29,12 +29,14 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="src\Views\CategoriesView.html" />
+    <Content Include="src\Views\PlayListView.html" />
     <Content Include="src\Views\ScenesView.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app.ts" />
     <TypeScriptCompile Include="src\Controllers\CategoriesController.ts" />
+    <TypeScriptCompile Include="src\Controllers\PlayListViewController.ts" />
     <TypeScriptCompile Include="src\Controllers\MainController.ts" />
     <TypeScriptCompile Include="src\Controllers\ScenesController.ts" />
     <TypeScriptCompile Include="src\Models\Playlist.ts" />
