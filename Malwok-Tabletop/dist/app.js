@@ -11,6 +11,7 @@ var Malwok;
             var CategoriesController = (function () {
                 function CategoriesController(scenesSingleton) {
                     this.ScenesSingleton = scenesSingleton;
+                    this.test = "Hello world";
                 }
                 return CategoriesController;
             }());

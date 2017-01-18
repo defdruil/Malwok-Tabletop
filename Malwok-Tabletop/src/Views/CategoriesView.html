@@ -1,8 +1,6 @@
 ﻿<div class="row" ng-controller="CategoriesController as CategoriesCtrl">
-    <div class="col">
-        <ul class="list"/>
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Milk</li>
+    <div class="col-md-12">
+        {{CategoriesCtrl.test}} - From CategoriesController
+        <div class="row" ng-repeat="category in CategoriesCtrl.ScenesSingleton.Scenes">test</div>
     </div>
 </div>
