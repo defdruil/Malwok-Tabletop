@@ -1,5 +1,5 @@
 ﻿module Malwok.Tabletop.Website {
-    export class ScenesController {
+    export class CategoriesController {
         //Injection de dépendances
         static $inject = ['ScenesSingleton'];
 
@@ -15,5 +15,5 @@
 
 
     }
-    app.controller("ScenesController", ScenesController);
+    app.controller("ScenesController", CategoriesController);
 }

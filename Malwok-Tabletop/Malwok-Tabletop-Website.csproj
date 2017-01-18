@@ -28,10 +28,7 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-<<<<<<< HEAD
-=======
     <Content Include="Views\CategoriesView.html" />
->>>>>>> 09c2506cfc1f67b61ef6462aa916244a4de626f0
     <Content Include="Views\ScenesView.html" />
     <Content Include="web.config" />
   </ItemGroup>
