@@ -1,17 +1,21 @@
 ﻿﻿<div class="row" ng-controller="CategoriesController as CategoriesCtrl">
-    <div class="col-md-12">
-        {{CategoriesCtrl.test}} - From CategoriesController
-        <div class="row" ng-repeat="category in CategoriesCtrl.ScenesSingleton.Scenes">test</div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-md-12" ng-init="console.log(CategoriesCtrl);">
-        laaaaa
-        {{CategoriesCtrl.truc}}
-        <div ng-repeat="playlist in CategoriesCtrl.ScenesSingleton.Scenes">
-            {{playlist.Name}} Hello
-
-
+    <div class="col-xs-12 col-md-12">
+        <div class="row well well-sm">
+            <input type="text" ng-change="CategoriesCtrl.UpdateOnSearch();" placeholder="Search..." ng-model="CategoriesCtrl.SearchedText" />
+        </div>
+        <div class="well well-sm">
+            <div ng-repeat="category in CategoriesCtrl.DisplayedCategories" class="row">
+                <div class="col-md-12 col-xs-12">
+                    <p style="cursor:pointer" ng-click="category.HidePlaylists = !category.HidePlaylists">{{category.Name}}</p>
+                    <div ng-hide="category.HidePlaylists" >
+                        <div ng-repeat="playlist in category.Playlists" ng-show="playlist.IsPlaylistToDisplay || !category.HidePlaylists" class="row">
+                            <div class="col-sm-offset-2 col-md-offset-2 col-md-12 col-xs-12">
+                                <p ng-click="CategoriesCtrl.PlaylistClicked(playlist)">{{playlist.Name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

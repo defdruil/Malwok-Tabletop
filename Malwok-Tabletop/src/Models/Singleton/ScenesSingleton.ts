@@ -1,14 +1,14 @@
 ﻿module Malwok.Tabletop.Website {
     'use strict'
     export class ScenesSingleton {
-        static $inject = ["CategoriesService"];
+        static $inject = ["ScenesService"];
 
-        private _categoriesService: CategoriesService;
+        private _scenesService: ScenesService;
 
-        constructor(categoriesService: CategoriesService) {
-            this._categoriesService = categoriesService;
-            this.Scenes = this._categoriesService.getPlayLists();
-            this.CurrentScene = <Scene>{ Id: 1, Name: "Main Scene Test", Playlists: [] };
+        constructor(scenesService: ScenesService) {
+            this._scenesService = scenesService;
+            this.CurrentScene = this._scenesService.getCurrentScene();
+            this.Scenes = this._scenesService.getAllScenes();
         }
 
         public Scenes: Scene[];

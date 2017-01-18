@@ -4,9 +4,10 @@
         Name: string;
         Id: number;
         Sounds: Sound[];
-        Volume: number;
+        Volume?: number;
         MinFrequency?: number;
         MaxFrequency?: number;
         DomElement?: HTMLAudioElement;
+        IsPlaylistToDisplay?: boolean;
     }
 }

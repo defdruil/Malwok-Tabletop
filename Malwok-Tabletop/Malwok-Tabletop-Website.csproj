@@ -36,14 +36,17 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app.ts" />
     <TypeScriptCompile Include="src\Controllers\CategoriesController.ts" />
-    <TypeScriptCompile Include="src\Controllers\PlayListViewController.ts" />
+    <TypeScriptCompile Include="src\Controllers\PlayListController.ts" />
     <TypeScriptCompile Include="src\Controllers\MainController.ts" />
     <TypeScriptCompile Include="src\Controllers\ScenesController.ts" />
+    <TypeScriptCompile Include="src\Models\Category.ts" />
     <TypeScriptCompile Include="src\Models\Playlist.ts" />
     <TypeScriptCompile Include="src\Models\Scene.ts" />
+    <TypeScriptCompile Include="src\Models\Singleton\CategoriesSingleton.ts" />
     <TypeScriptCompile Include="src\Models\Singleton\ScenesSingleton.ts" />
     <TypeScriptCompile Include="src\Models\Sound.ts" />
     <TypeScriptCompile Include="src\Services\CategoriesService.ts" />
+    <TypeScriptCompile Include="src\Services\ScenesServices.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
