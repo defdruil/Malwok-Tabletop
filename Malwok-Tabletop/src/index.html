@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Malwok Tabletop Audio</title>
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css" type="text/css" />
+    <script type="text/javascript" src="..\node_modules\angular\angular.min.js"></script>
+    <script src="..\dist\app.js"></script>
+</head>
+<body ng-app="app">
+    <div id="content" ng-controller="MainController as ctrl" class="container">
+        <div class="row">
+            <div class="col-md-3" ng-include="'Views/CategoriesView.html'"></div>
+            <div class="col-md-9">
+                <div ng-include="'Views/ScenesView.html'"></div>
+            </div>
+        </div>
+        <footer>
+            <hr/>
+            <p class="text-center">Tal'Oc Tabletop Audio - 2017 Tous drois réservés.</p>
+        </footer>
+    </div>
+</body>
+</html>
