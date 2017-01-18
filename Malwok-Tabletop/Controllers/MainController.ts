@@ -10,5 +10,5 @@
             this._scenesSingleton = scenesSingleton;
         }
     }
-    app.controller("CategoriesController", MainController);
+    app.controller("MainController", MainController);
 }

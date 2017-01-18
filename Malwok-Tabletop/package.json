@@ -4,11 +4,14 @@
   "description": "this is a description",
   "main": "index.js",
   "dependencies": {
+    "typescript": "~2.1.5",
     "gulp": "^3.9.1",
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
     "gulp-concat": "~2.6.1",
-    "gulp-load-plugins": "^1.4.0"
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-tsc": "~1.2.6",
+    "del": "~2.2.2"
   },
   "devDependencies": { },
   "scripts": {
