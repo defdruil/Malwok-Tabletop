@@ -4,5 +4,6 @@
         Name: string;
         Id: number;
         Playlists: Playlist[];
+        IsEmpty?: boolean;
     }
 }

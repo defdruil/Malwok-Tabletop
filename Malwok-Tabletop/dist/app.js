@@ -9,45 +9,72 @@ var Malwok;
         (function (Website) {
             'use strict';
             var CategoriesController = (function () {
+                // Constructeur
                 function CategoriesController(categoriesSingleton, scenesSingleton) {
+                    // Récupération du static $inject
                     this.CategoriesSingleton = categoriesSingleton;
                     this.ScenesSingleton = scenesSingleton;
+                    // Initialisation
                     this.SearchedText = "";
+                    // Récupération des catégories chargées
                     this.DisplayedCategories = this.CategoriesSingleton.Categories;
+                    // Création des propriétés qui gèrent l'affichage
                     this.CategoriesSingleton.Categories.forEach(function (category) {
                         category.HidePlaylists = true;
                         category.Playlists.forEach(function (playlist) {
                             playlist.IsPlaylistToDisplay = true;
                         });
                     });
+                    // Génération du message si la liste est vide (Normalement, ne devrait jamais arriver, sauf erreur ou Server Down (une fois que le service prendra ses infos sur le server))
+                    this.CheckCategoriesDisplayed();
                 }
+                // Fonction qui met à jour la liste de catégories/Playlists selon la recherche effectuée
                 CategoriesController.prototype.UpdateOnSearch = function () {
                     var _this = this;
+                    // Reset de la liste
                     this.DisplayedCategories = [];
+                    // Pour chaque catégorie
                     this.CategoriesSingleton.Categories.forEach(function (category) {
-                        // TODO A améliorer, ne détecte pas si la string recherchée est au début du Name
-                        if (category.Name.indexOf(_this.SearchedText) !== -1) {
+                        // On regarde si le nom de la catégorie match la recherche
+                        if (category.Name.toLowerCase().indexOf(_this.SearchedText.toLowerCase()) !== -1) {
+                            // Si oui, on l'ajoute à la liste des catégories à afficher
                             _this.DisplayedCategories.push(category);
+                            // Puis, pour chaque Playlist de la catégorie qui match
                             category.Playlists.forEach(function (playlist) {
+                                // On indique que les playlist sont à afficher (ne s'affichera que si la catégorie est "ouverte")
                                 playlist.IsPlaylistToDisplay = true;
                             });
                         }
                         else {
+                            // Si non, pour chaque playlist
                             category.Playlists.forEach(function (playlist) {
-                                // TODO A améliorer, ne détecte pas si la string recherchée est au début du Name
-                                if (playlist.Name.indexOf(_this.SearchedText) !== -1) {
+                                // On teste si le nom de la playlist match la recherche
+                                if (playlist.Name.toLowerCase().indexOf(_this.SearchedText.toLowerCase()) !== -1) {
+                                    // Si oui, on ajoute la catégorie à la liste des catégories à afficher
                                     _this.DisplayedCategories.push(category);
+                                    // Et on indique que les playlist sont à afficher (ne s'affichera que si la catégorie est "ouverte")
                                     playlist.IsPlaylistToDisplay = true;
                                 }
                                 else {
+                                    // Si non, on affiche pas la catégorie, et on cache les playlist (inutile en théorie, mais permet de garder les données de la liste correctes)
                                     playlist.IsPlaylistToDisplay = false;
                                 }
                             });
                         }
                     });
+                    // A la fin, on vérifie si la liste est vide ou pas
+                    this.CheckCategoriesDisplayed();
                 };
+                // Appelle la fonction d'ajout de la playlist
                 CategoriesController.prototype.PlaylistClicked = function (playlist) {
                     this.ScenesSingleton.AddPlaylist(playlist);
+                };
+                // Regarde si la liste est vide, et génère l'affichage du message d'erreur si elle l'est
+                CategoriesController.prototype.CheckCategoriesDisplayed = function () {
+                    if (this.DisplayedCategories.length != 0)
+                        this.NoCategoryDisplayed = false;
+                    else
+                        this.NoCategoryDisplayed = true;
                 };
                 return CategoriesController;
             }());
@@ -114,9 +141,14 @@ var Malwok;
         (function (Website) {
             var ScenesController = (function () {
                 function ScenesController(scenesSingleton) {
+                    // Récupération du $inject
                     this.ScenesSingleton = scenesSingleton;
+                    // Initialisation
                     this.IsPlaying = false;
+                    // Vérification au chargement pour voir si la scène est vide
+                    this.ScenesSingleton.CheckIfSceneIsEmpty();
                 }
+                // Fonction non testée qui devrait lire l'ensemble des playlists chargées.
                 ScenesController.prototype.PlayPauseAllButtonPressed = function () {
                     var index = 0;
                     while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
@@ -130,6 +162,7 @@ var Malwok;
                         }
                     }
                 };
+                // Appel de la fonction qui permet de retirer la playlist de la scène
                 ScenesController.prototype.RemovePlaylist = function (playlist) {
                     this.ScenesSingleton.RemovePlaylist(playlist);
                 };
@@ -337,20 +370,37 @@ var Malwok;
             'use strict';
             var ScenesSingleton = (function () {
                 function ScenesSingleton(scenesService) {
+                    // Récupération du $inject
                     this._scenesService = scenesService;
+                    // Renseignement des listes depuis le service
                     this.CurrentScene = this._scenesService.getCurrentScene();
                     this.Scenes = this._scenesService.getAllScenes();
                 }
+                // Fonction qui duplique la playlist passée, afin d'éviter les objets dupliqués dans la scène (qui provoquent des erreurs de ng-repeat)
                 ScenesSingleton.prototype.AddPlaylist = function (playlist) {
+                    // Création d'une nouvelle instance de la playlist
                     var playlistToAdd = {
                         Id: this.CurrentScene.Playlists.length + 1,
                         Name: playlist.Name,
                         Sounds: playlist.Sounds
                     };
+                    // Ajout à la scène en cours
                     this.CurrentScene.Playlists.push(playlistToAdd);
+                    // Mise à jour du message d'aide si il était affiché
+                    this.CheckIfSceneIsEmpty();
                 };
                 ScenesSingleton.prototype.RemovePlaylist = function (playlist) {
+                    // Suppression de la playlist de la scène en cours
                     this.CurrentScene.Playlists.splice(this.CurrentScene.Playlists.indexOf(playlist), 1);
+                    // Mise à jour du message d'aide si la liste est désormais vide
+                    this.CheckIfSceneIsEmpty();
+                };
+                // Vérifie si la Scène est vide, et affiche un message indiquant comment ajouter de nouvelles playlists sinon
+                ScenesSingleton.prototype.CheckIfSceneIsEmpty = function () {
+                    if (this.CurrentScene.Playlists.length != 0)
+                        this.CurrentScene.IsEmpty = false;
+                    else
+                        this.CurrentScene.IsEmpty = true;
                 };
                 return ScenesSingleton;
             }());

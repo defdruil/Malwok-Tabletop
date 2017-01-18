@@ -1,20 +1,31 @@
 ﻿﻿<div class="row" ng-controller="CategoriesController as CategoriesCtrl">
     <div class="col-xs-12 col-md-12">
         <div class="row well well-sm">
+            <!-- Barre de recherche -->
             <input type="text" ng-change="CategoriesCtrl.UpdateOnSearch();" placeholder="Search..." ng-model="CategoriesCtrl.SearchedText" />
         </div>
         <div class="well well-sm">
-            <div ng-repeat="category in CategoriesCtrl.DisplayedCategories" class="row">
+            <!-- Répétition des catégories à afficher -->
+            <div ng-repeat="category in CategoriesCtrl.DisplayedCategories" class="row" ng-hide="category.Playlists.length == 0">
                 <div class="col-md-12 col-xs-12">
+                    <!-- Nom clickable de la catégorie qui affiche ou non les playlists contenues dedans -->
                     <p style="cursor:pointer" ng-click="category.HidePlaylists = !category.HidePlaylists">{{category.Name}}</p>
-                    <div ng-hide="category.HidePlaylists" >
-                        <div ng-repeat="playlist in category.Playlists" ng-show="playlist.IsPlaylistToDisplay || !category.HidePlaylists" class="row">
-                            <div class="col-sm-offset-2 col-md-offset-2 col-md-12 col-xs-12">
+                    <!-- Gestion de l'affichage de l'expand/hide des playlist sur le click, ou si la catégorie ne contient aucune Playlist -->
+                    <div ng-hide="category.HidePlaylists">
+                        <!-- Répétition de l'affichage des playlists en fonction de la recherche -->
+                        <div ng-repeat="playlist in category.Playlists" ng-show="playlist.IsPlaylistToDisplay" class="row">
+                            <!-- L'offset permet le décallage léger du sous-menu -->
+                            <div class="col-sm-offset-2 col-md-offset-2 col-md-10 col-xs-10">
+                                <!-- Ajout de la Playlist au singleton sur click, et affichage du nom de la playlist -->
                                 <p ng-click="CategoriesCtrl.PlaylistClicked(playlist)" style="cursor:pointer">{{playlist.Name}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- Affichage d'un message d'erreur si la liste est vide -->
+            <div ng-show="CategoriesCtrl.NoCategoryDisplayed">
+                <p>No Category matching the search...</p>
             </div>
         </div>
     </div>
