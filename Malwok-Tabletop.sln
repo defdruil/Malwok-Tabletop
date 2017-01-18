@@ -12,6 +12,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malwok-Tabletop-API", "Malwok-Tabletop-API\Malwok-Tabletop-API.csproj", "{30FDAEE0-B75C-4153-B14A-012D37F6B92C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devRessources", "devRessources", "{2ACA87DB-99BF-4174-B785-7A550A887505}"
+	ProjectSection(SolutionItems) = preProject
+		devRessources\Helper Bootstrap button generator.txt = devRessources\Helper Bootstrap button generator.txt
+		devRessources\index.html = devRessources\index.html
+		devRessources\MalwokTabletopAudio IHM.jpg = devRessources\MalwokTabletopAudio IHM.jpg
+		devRessources\playlist-picker.html = devRessources\playlist-picker.html
+		devRessources\scene-footer.html = devRessources\scene-footer.html
+		devRessources\scene.html = devRessources\scene.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

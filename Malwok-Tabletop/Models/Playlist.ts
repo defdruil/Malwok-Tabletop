@@ -3,6 +3,7 @@
     export interface Playlist {
         Name: string;
         Id: number;
-        Sounds: Sound[];
+        Sounds?: Sound[];
+        Volume: number;
     }
 }
