@@ -10,7 +10,7 @@
                     <div ng-hide="category.HidePlaylists" >
                         <div ng-repeat="playlist in category.Playlists" ng-show="playlist.IsPlaylistToDisplay || !category.HidePlaylists" class="row">
                             <div class="col-sm-offset-2 col-md-offset-2 col-md-12 col-xs-12">
-                                <p ng-click="CategoriesCtrl.PlaylistClicked(playlist)">{{playlist.Name}}</p>
+                                <p ng-click="CategoriesCtrl.PlaylistClicked(playlist)" style="cursor:pointer">{{playlist.Name}}</p>
                             </div>
                         </div>
                     </div>

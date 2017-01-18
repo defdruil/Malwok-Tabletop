@@ -8,50 +8,6 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
             var CategoriesController = (function () {
                 function CategoriesController(categoriesSingleton, scenesSingleton) {
                     this.CategoriesSingleton = categoriesSingleton;
@@ -91,7 +47,7 @@ var Malwok;
                     });
                 };
                 CategoriesController.prototype.PlaylistClicked = function (playlist) {
-                    this.ScenesSingleton.CurrentScene.Playlists.push(playlist);
+                    this.ScenesSingleton.AddPlaylist(playlist);
                 };
                 return CategoriesController;
             }());
@@ -174,12 +130,59 @@ var Malwok;
                         }
                     }
                 };
+                ScenesController.prototype.RemovePlaylist = function (playlist) {
+                    this.ScenesSingleton.RemovePlaylist(playlist);
+                };
                 return ScenesController;
             }());
             //Injection de dépendances
             ScenesController.$inject = ['ScenesSingleton'];
             Website.ScenesController = ScenesController;
             app.controller("ScenesController", ScenesController);
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
@@ -338,6 +341,17 @@ var Malwok;
                     this.CurrentScene = this._scenesService.getCurrentScene();
                     this.Scenes = this._scenesService.getAllScenes();
                 }
+                ScenesSingleton.prototype.AddPlaylist = function (playlist) {
+                    var playlistToAdd = {
+                        Id: this.CurrentScene.Playlists.length + 1,
+                        Name: playlist.Name,
+                        Sounds: playlist.Sounds
+                    };
+                    this.CurrentScene.Playlists.push(playlistToAdd);
+                };
+                ScenesSingleton.prototype.RemovePlaylist = function (playlist) {
+                    this.CurrentScene.Playlists.splice(this.CurrentScene.Playlists.indexOf(playlist), 1);
+                };
                 return ScenesSingleton;
             }());
             ScenesSingleton.$inject = ["ScenesService"];

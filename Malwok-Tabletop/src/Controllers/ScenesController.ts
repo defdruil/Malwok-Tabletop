@@ -24,6 +24,10 @@
                 }
             }
         }
+
+        public RemovePlaylist(playlist: Playlist) {
+            this.ScenesSingleton.RemovePlaylist(playlist);
+        }
     }
     app.controller("ScenesController", ScenesController);
 }

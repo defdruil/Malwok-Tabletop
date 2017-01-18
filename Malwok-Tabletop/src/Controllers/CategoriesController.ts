@@ -47,7 +47,7 @@
         }
 
         public PlaylistClicked(playlist: Playlist): void {
-            this.ScenesSingleton.CurrentScene.Playlists.push(playlist);
+            this.ScenesSingleton.AddPlaylist(playlist);
         }
     }
     app.controller("CategoriesController", CategoriesController);
