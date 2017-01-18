@@ -17,7 +17,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('compile', ['clean'], function () {
-    gulp.src(['**/*.ts', '!node_modules/**/*.ts'])
+    gulp.src(['./src/**/*.ts'])
       .pipe(typescript())
       .pipe(concat('app.js'))
       .pipe(gulp.dest('dist/'))

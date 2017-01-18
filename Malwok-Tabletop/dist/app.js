@@ -1,4 +1,4 @@
-/// <reference path="../../definition/angularjs/angular.d.ts" />
+/// <reference path="../definition/angularjs/angular.d.ts" />
 var app = angular.module("app", []);
 
 var Malwok;
@@ -18,7 +18,6 @@ var Malwok;
             CategoriesController.$inject = ['ScenesSingleton'];
             Website.CategoriesController = CategoriesController;
             app.controller("CategoriesController", CategoriesController);
-<<<<<<< HEAD
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
@@ -50,53 +49,6 @@ var Malwok;
     (function (Tabletop) {
         var Website;
         (function (Website) {
-            var ScenesController = (function () {
-                function ScenesController(scenesSingleton) {
-                    this.ScenesSingleton = scenesSingleton;
-                }
-                return ScenesController;
-            }());
-            //Injection de dépendances
-            ScenesController.$inject = ['ScenesSingleton'];
-            Website.ScenesController = ScenesController;
-            app.controller("ScenesController", ScenesController);
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-=======
->>>>>>> 8a503c62a7dfd26dd6dea3b79097cebfadfcc58a
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-<<<<<<< HEAD
-            'use strict';
-=======
             var PlayListViewController = (function () {
                 function PlayListViewController(scenesSingleton) {
                     this.ScenesSingleton = scenesSingleton;
@@ -127,7 +79,39 @@ var Malwok;
             ScenesController.$inject = ['ScenesSingleton'];
             Website.ScenesController = ScenesController;
             app.controller("ScenesController", ScenesController);
->>>>>>> 8a503c62a7dfd26dd6dea3b79097cebfadfcc58a
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
@@ -169,39 +153,6 @@ var Malwok;
             }());
             Website.CategoriesService = CategoriesService;
             app.service("CategoriesService", CategoriesService);
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));

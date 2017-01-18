@@ -49,7 +49,6 @@
     <Content Include="package.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="packages.config" />
-    <Content Include="tsconfig.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

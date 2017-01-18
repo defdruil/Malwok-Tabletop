@@ -5,8 +5,8 @@
         Id: number;
         Sounds: Sound[];
         Volume: number;
-        MinFrequency: number;
-        MaxFrequency: number;
-        DomElement: HTMLAudioElement;
+        MinFrequency?: number;
+        MaxFrequency?: number;
+        DomElement?: HTMLAudioElement;
     }
 }
