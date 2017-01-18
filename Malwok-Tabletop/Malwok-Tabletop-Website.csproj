@@ -24,24 +24,24 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="gulpfile.js" />
-    <Content Include="index.html" />
+    <Content Include="src\index.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Views\CategoriesView.html" />
-    <Content Include="Views\ScenesView.html" />
+    <Content Include="src\Views\CategoriesView.html" />
+    <Content Include="src\Views\ScenesView.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="Controllers\CategoriesController.ts" />
-    <TypeScriptCompile Include="Controllers\MainController.ts" />
-    <TypeScriptCompile Include="Controllers\ScenesController.ts" />
-    <TypeScriptCompile Include="Models\Playlist.ts" />
-    <TypeScriptCompile Include="Models\Scene.ts" />
-    <TypeScriptCompile Include="Models\Singleton\ScenesSingleton.ts" />
-    <TypeScriptCompile Include="Models\Sound.ts" />
-    <TypeScriptCompile Include="Services\CategoriesService.ts" />
+    <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\Controllers\CategoriesController.ts" />
+    <TypeScriptCompile Include="src\Controllers\MainController.ts" />
+    <TypeScriptCompile Include="src\Controllers\ScenesController.ts" />
+    <TypeScriptCompile Include="src\Models\Playlist.ts" />
+    <TypeScriptCompile Include="src\Models\Scene.ts" />
+    <TypeScriptCompile Include="src\Models\Singleton\ScenesSingleton.ts" />
+    <TypeScriptCompile Include="src\Models\Sound.ts" />
+    <TypeScriptCompile Include="src\Services\CategoriesService.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />

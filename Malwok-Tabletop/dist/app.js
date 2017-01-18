@@ -1,4 +1,4 @@
-/// <reference path="../definition/angularjs/angular.d.ts" />
+/// <reference path="../../definition/angularjs/angular.d.ts" />
 var app = angular.module("app", []);
 
 var Malwok;
@@ -12,6 +12,16 @@ var Malwok;
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
 
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
 
 var Malwok;
 (function (Malwok) {
@@ -30,6 +40,7 @@ var Malwok;
     (function (Tabletop) {
         var Website;
         (function (Website) {
+            'use strict';
             var CategoriesController = (function () {
                 function CategoriesController(scenesSingleton) {
                     this.ScenesSingleton = scenesSingleton;
@@ -50,6 +61,7 @@ var Malwok;
     (function (Tabletop) {
         var Website;
         (function (Website) {
+            'use strict';
             var MainController = (function () {
                 function MainController(scenesSingleton) {
                     this.ScenesSingleton = scenesSingleton;
@@ -72,7 +84,7 @@ var Malwok;
         (function (Website) {
             var ScenesController = (function () {
                 function ScenesController(scenesSingleton) {
-                    this._scenesSingleton = scenesSingleton;
+                    this.ScenesSingleton = scenesSingleton;
                 }
                 return ScenesController;
             }());
