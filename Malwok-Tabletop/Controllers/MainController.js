@@ -13,7 +13,7 @@ var Malwok;
                 return MainController;
             }());
             Website.MainController = MainController;
-            app.controller("CategoriesController", MainController);
+            app.controller("MainController", MainController);
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));

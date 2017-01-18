@@ -15,5 +15,5 @@
 
 
     }
-    app.controller("ScenesController", CategoriesController);
+    app.controller("CategoriesController", CategoriesController);
 }

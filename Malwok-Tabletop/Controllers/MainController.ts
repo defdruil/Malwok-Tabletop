@@ -6,10 +6,9 @@
         // Singleton des scènes (All datas)
         public _scenesSingleton: ScenesSingleton;
 
-
         constructor(scenesSingleton: ScenesSingleton) {
             this._scenesSingleton = scenesSingleton;
         }
     }
-    app.controller("CategoriesController", MainController);
+    app.controller("MainController", MainController);
 }

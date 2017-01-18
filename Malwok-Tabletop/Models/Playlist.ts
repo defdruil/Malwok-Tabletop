@@ -4,5 +4,6 @@
         Name: string;
         Id: number;
         Sounds: Sound[];
+        Volume: number;
     }
 }

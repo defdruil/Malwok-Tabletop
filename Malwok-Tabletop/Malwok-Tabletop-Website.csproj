@@ -41,6 +41,7 @@
     <TypeScriptCompile Include="Models\Scene.ts" />
     <TypeScriptCompile Include="Models\Singleton\ScenesSingleton.ts" />
     <TypeScriptCompile Include="Models\Sound.ts" />
+    <TypeScriptCompile Include="Services\CategoriesService.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
