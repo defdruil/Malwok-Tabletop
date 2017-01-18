@@ -8,39 +8,6 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
             var CategoriesController = (function () {
                 function CategoriesController(scenesSingleton) {
                     this.ScenesSingleton = scenesSingleton;
@@ -92,6 +59,39 @@ var Malwok;
             ScenesController.$inject = ['ScenesSingleton'];
             Website.ScenesController = ScenesController;
             app.controller("ScenesController", ScenesController);
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
