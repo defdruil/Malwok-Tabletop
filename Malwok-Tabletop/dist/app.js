@@ -43,7 +43,9 @@ var Malwok;
             'use strict';
             var CategoriesController = (function () {
                 function CategoriesController(scenesSingleton) {
+                    this.truc = "machin";
                     this.ScenesSingleton = scenesSingleton;
+                    this.truc = "hello";
                 }
                 return CategoriesController;
             }());
@@ -62,6 +64,36 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
+            var MainController = (function () {
+                function MainController(scenesSingleton) {
+                    this.ScenesSingleton = scenesSingleton;
+                }
+                return MainController;
+            }());
+            //Injection de dépendances
+            MainController.$inject = ['ScenesSingleton'];
+            Website.MainController = MainController;
+            app.controller("MainController", MainController);
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            var PlayListViewController = (function () {
+                function PlayListViewController(scenesSingleton) {
+                    this.ScenesSingleton = scenesSingleton;
+                }
+                return PlayListViewController;
+            }());
+            //Injection de dépendances
+            PlayListViewController.$inject = ['ScenesSingleton'];
+            Website.PlayListViewController = PlayListViewController;
+            app.controller("PlayListViewController", PlayListViewController);
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
