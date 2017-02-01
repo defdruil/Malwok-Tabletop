@@ -1,15 +1,16 @@
-﻿﻿<div class="row" ng-controller="CategoriesController as CategoriesCtrl">
-    <div class="col-xs-12 col-md-12">
-        <div class="row well well-sm">
+﻿﻿<div ng-controller="CategoriesController as CategoriesCtrl">
+    <div class="col-xs-12 col-md-12 align-top">
+        <div class="well well-sm">
             <!-- Barre de recherche -->
-            <input type="text" ng-change="CategoriesCtrl.UpdateOnSearch();" placeholder="Search..." ng-model="CategoriesCtrl.SearchedText" />
+            <input class="form-control" type="text" ng-change="CategoriesCtrl.UpdateOnSearch();" placeholder="Search..." ng-model="CategoriesCtrl.SearchedText" />
         </div>
         <div class="well well-sm">
             <!-- Répétition des catégories à afficher -->
             <div ng-repeat="category in CategoriesCtrl.DisplayedCategories" class="row" ng-hide="category.Playlists.length == 0">
-                <div class="col-md-12 col-xs-12">
+                <div class="col-md-12 col-xs-12 btn-group">
                     <!-- Nom clickable de la catégorie qui affiche ou non les playlists contenues dedans -->
-                    <p style="cursor:pointer" ng-click="category.HidePlaylists = !category.HidePlaylists">{{category.Name}}</p>
+                    <a href="#" class="btn btn-default categorylist" ng-click="category.HidePlaylists = !category.HidePlaylists"> {{category.Name}} </a>
+                    <a href="#" class="btn btn-default categorylist" ng-click="category.HidePlaylists = !category.HidePlaylists"><span class="caret"></span></a>
                     <!-- Gestion de l'affichage de l'expand/hide des playlist sur le click, ou si la catégorie ne contient aucune Playlist -->
                     <div ng-hide="category.HidePlaylists">
                         <!-- Répétition de l'affichage des playlists en fonction de la recherche -->
