@@ -39,6 +39,7 @@ var Malwok;
                         if (category.Name.toLowerCase().indexOf(_this.SearchedText.toLowerCase()) !== -1) {
                             // Si oui, on l'ajoute à la liste des catégories à afficher
                             _this.DisplayedCategories.push(category);
+                            category.HidePlaylists = true;
                             // Puis, pour chaque Playlist de la catégorie qui match
                             category.Playlists.forEach(function (playlist) {
                                 // On indique que les playlist sont à afficher (ne s'affichera que si la catégorie est "ouverte")
@@ -52,6 +53,7 @@ var Malwok;
                                 if (playlist.Name.toLowerCase().indexOf(_this.SearchedText.toLowerCase()) !== -1) {
                                     // Si oui, on ajoute la catégorie à la liste des catégories à afficher
                                     _this.DisplayedCategories.push(category);
+                                    category.HidePlaylists = false;
                                     // Et on indique que les playlist sont à afficher (ne s'affichera que si la catégorie est "ouverte")
                                     playlist.IsPlaylistToDisplay = true;
                                 }
