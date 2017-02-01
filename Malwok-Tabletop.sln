@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malwok-Tabletop-API", "Malwok-Tabletop-API\Malwok-Tabletop-API.csproj", "{30FDAEE0-B75C-4153-B14A-012D37F6B92C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devRessources", "devRessources", "{2ACA87DB-99BF-4174-B785-7A550A887505}"
 	ProjectSection(SolutionItems) = preProject
 		devRessources\Helper Bootstrap button generator.txt = devRessources\Helper Bootstrap button generator.txt
@@ -21,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devRessources", "devRessour
 		devRessources\scene-footer.html = devRessources\scene-footer.html
 		devRessources\scene.html = devRessources\scene.html
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malwok-Tabletop-API", "Malwok-Tabletop-API\Malwok-Tabletop-API.csproj", "{9C62B2AE-019E-42C5-BCFA-CE151306008A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +32,10 @@ Global
 		{2D575710-971E-40A6-845E-3BC5920EBC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D575710-971E-40A6-845E-3BC5920EBC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D575710-971E-40A6-845E-3BC5920EBC37}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30FDAEE0-B75C-4153-B14A-012D37F6B92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C62B2AE-019E-42C5-BCFA-CE151306008A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C62B2AE-019E-42C5-BCFA-CE151306008A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C62B2AE-019E-42C5-BCFA-CE151306008A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C62B2AE-019E-42C5-BCFA-CE151306008A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,6 +50,8 @@
                 id++;
             }
         }
+        
+
         public getCategories(): Category[] {
             return this.Categories;
         }
