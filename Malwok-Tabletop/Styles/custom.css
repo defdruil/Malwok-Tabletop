@@ -1,0 +1,16 @@
+﻿body {
+    background-image: url(../Assets/planet01.jpg);
+}
+.categorylist {
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: #263238;
+    color: #fff;
+}   
+.align-top {
+    margin-top: 50px;
+}
+.title-main {
+    color: #ffffff;
+    margin-top: 30px;
+}
