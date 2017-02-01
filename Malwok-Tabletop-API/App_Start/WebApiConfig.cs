@@ -21,6 +21,7 @@ namespace Malwok_Tabletop_API
             //    defaults: new { id = RouteParameter.Optional }
             config.MapHttpAttributeRoutes();
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.EnableCors();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Malwok_Tabletop_API.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702011330158_InitialMigration"; }
+            get { return "201702011605119_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

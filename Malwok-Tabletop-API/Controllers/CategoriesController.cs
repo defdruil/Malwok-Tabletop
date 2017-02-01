@@ -12,9 +12,11 @@ using Malwok_Tabletop_API.Context;
 using Malwok_Tabletop_API.Models;
 using Malwok_Tabletop_API.Models.DTO;
 using Malwok_Tabletop_API.Services;
+using System.Web.Http.Cors;
 
 namespace Malwok_Tabletop_API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/categories")]
     public class CategoriesController : ApiController
     {

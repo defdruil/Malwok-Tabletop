@@ -1,10 +1,14 @@
 ﻿module Malwok.Tabletop.Website {
     'use strict'
     export class CategoriesService {
+        static $inject = ['$http'];
+        private _httpService: ng.IHttpService;
 
         private Categories: Category[];
 
-        constructor() {
+        constructor(http: ng.IHttpService) {
+            this._httpService = http;
+
             let Ambiances: Sound[] = [
                 { Id: 1, Name: "Inn", Path: "\Resources\Categories\Ambiances\Inn\tavern_music.mp3" },
                 { Id: 2, Name: "ElvesForest", Path: "\Resources\Categories\Ambiances\Forest\ElvesForest.mp3" },
@@ -50,11 +54,14 @@
                 id++;
             }
         }
-        
 
-        public getCategories(): Category[] {
-            return this.Categories;
+        public getCategories(): ng.IHttpPromise<Category[]> {
+            return this._httpService.get("http://localhost:51894/api/categories/all");
         }
+
+        /*public getCategories(): Category[] {
+            return this.Categories;
+        }*/
     }
     app.service("CategoriesService", CategoriesService);
 }

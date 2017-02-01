@@ -10,23 +10,27 @@ var Malwok;
             'use strict';
             var CategoriesController = (function () {
                 // Constructeur
-                function CategoriesController(categoriesSingleton, scenesSingleton) {
+                function CategoriesController(categoriesSingleton, scenesSingleton, categoriesService) {
+                    var _this = this;
                     // Récupération du static $inject
                     this.CategoriesSingleton = categoriesSingleton;
                     this.ScenesSingleton = scenesSingleton;
                     // Initialisation
                     this.SearchedText = "";
-                    // Récupération des catégories chargées
-                    this.DisplayedCategories = this.CategoriesSingleton.Categories;
-                    // Création des propriétés qui gèrent l'affichage
-                    this.CategoriesSingleton.Categories.forEach(function (category) {
-                        category.HidePlaylists = true;
-                        category.Playlists.forEach(function (playlist) {
-                            playlist.IsPlaylistToDisplay = true;
+                    // Appel asynchrone, puis après cet appel
+                    this.CategoriesSingleton.getCategories().then(function (categories) {
+                        // Récupération des catégories chargées
+                        _this.DisplayedCategories = _this.CategoriesSingleton.Categories;
+                        // Création des propriétés qui gèrent l'affichage
+                        _this.CategoriesSingleton.Categories.forEach(function (category) {
+                            category.HidePlaylists = true;
+                            category.Playlists.forEach(function (playlist) {
+                                playlist.IsPlaylistToDisplay = true;
+                            });
                         });
+                        // Génération du message si la liste est vide (Normalement, ne devrait jamais arriver, sauf erreur ou Server Down (une fois que le service prendra ses infos sur le server))
+                        _this.CheckCategoriesDisplayed();
                     });
-                    // Génération du message si la liste est vide (Normalement, ne devrait jamais arriver, sauf erreur ou Server Down (une fois que le service prendra ses infos sur le server))
-                    this.CheckCategoriesDisplayed();
                 }
                 // Fonction qui met à jour la liste de catégories/Playlists selon la recherche effectuée
                 CategoriesController.prototype.UpdateOnSearch = function () {
@@ -81,7 +85,7 @@ var Malwok;
                 return CategoriesController;
             }());
             //Injection de dépendances
-            CategoriesController.$inject = ['CategoriesSingleton', 'ScenesSingleton'];
+            CategoriesController.$inject = ['CategoriesSingleton', 'ScenesSingleton', 'CategoriesService'];
             Website.CategoriesController = CategoriesController;
             app.controller("CategoriesController", CategoriesController);
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
@@ -185,52 +189,9 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
             var CategoriesService = (function () {
-                function CategoriesService() {
+                function CategoriesService(http) {
+                    this._httpService = http;
                     var Ambiances = [
                         { Id: 1, Name: "Inn", Path: "\Resources\Categories\Ambiances\Inn\tavern_music.mp3" },
                         { Id: 2, Name: "ElvesForest", Path: "\Resources\Categories\Ambiances\Forest\ElvesForest.mp3" },
@@ -276,10 +237,11 @@ var Malwok;
                     }
                 }
                 CategoriesService.prototype.getCategories = function () {
-                    return this.Categories;
+                    return this._httpService.get("http://localhost:51894/api/categories/all");
                 };
                 return CategoriesService;
             }());
+            CategoriesService.$inject = ['$http'];
             Website.CategoriesService = CategoriesService;
             app.service("CategoriesService", CategoriesService);
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
@@ -349,11 +311,61 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
             var CategoriesSingleton = (function () {
                 function CategoriesSingleton(categoriesService) {
                     this._categoriesService = categoriesService;
-                    this.Categories = this._categoriesService.getCategories();
                 }
+                CategoriesSingleton.prototype.getCategories = function () {
+                    var _this = this;
+                    return this._categoriesService.getCategories().then(function (response) {
+                        _this.Categories = response.data;
+                        return response.data;
+                    });
+                };
                 return CategoriesSingleton;
             }());
             CategoriesSingleton.$inject = ["CategoriesService"];
