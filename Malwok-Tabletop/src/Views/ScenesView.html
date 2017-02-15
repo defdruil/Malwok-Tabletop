@@ -7,8 +7,19 @@
             <div ng-repeat="playlist in ScenesCtrl.ScenesSingleton.CurrentScene.Playlists" class="col-xs-3 col-md-3">
                 <div class="well well-lg">
                     <button class="pull-right" ng-click="ScenesCtrl.RemovePlaylist(playlist)">X</button>
+                    <audio id={{playlist.Name}}{{playlist.Id}}></audio>
                     <h4 ng-bind="playlist.Name"></h4>
                     <p>Contenu</p>
+                </div>
+            </div>
+            <div>
+                <h2>Scene Controls</h2>
+                <div>
+                    <span class="glyphicon glyphicon-play" ng-click="ScenesCtrl.playGeneral()"></span>
+                    <span class="glyphicon glyphicon-pause" ng-click="ScenesCtrl.playGeneral()"></span>
+                    <span class="glyphicon glyphicon-backward" ng-click="ScenesCtrl.slowGeneral()"></span>
+                    <span class="glyphicon glyphicon-forward" ng-click="ScenesCtrl.fastGeneral()"></span>
+                    <span class="glyphicon glyphicon-stop" ng-click="ScenesCtrl.stopGeneral()"></span>
                 </div>
             </div>
             <div class="col-xs-12 col-md-12" ng-show="ScenesCtrl.ScenesSingleton.CurrentScene.IsEmpty">

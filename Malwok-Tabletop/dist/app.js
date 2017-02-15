@@ -149,17 +149,34 @@ var Malwok;
                     this.ScenesSingleton.CheckIfSceneIsEmpty();
                 }
                 // Fonction non testée qui devrait lire l'ensemble des playlists chargées.
-                ScenesController.prototype.PlayPauseAllButtonPressed = function () {
+                ScenesController.prototype.playGeneral = function () {
                     var index = 0;
-                    while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
-                        if (this.IsPlaying) {
+                    this.IsPlaying = !this.IsPlaying;
+                    while (index < this.ScenesSingleton.CurrentScene.Playlists.length) {
+                        if (!this.IsPlaying) {
                             this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.pause();
-                            this.IsPlaying = false;
                         }
                         else {
+                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement = document.getElementById(this.ScenesSingleton.CurrentScene.Playlists[index].Name + this.ScenesSingleton.CurrentScene.Playlists[index].Id);
+                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = 3;
+                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.src = this.ScenesSingleton.CurrentScene.Playlists[index].Sounds[0].Path;
                             this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.play();
-                            this.IsPlaying = true;
                         }
+                        index++;
+                    }
+                };
+                // Fonction non testée qui devrait accelerer l'ensemble des playlists chargées.
+                ScenesController.prototype.fastGeneral = function () {
+                    var index = 0;
+                    while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
+                        this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate + 0.5;
+                    }
+                };
+                // Fonction non testée qui devrait ralentir l'ensemble des playlists chargées.
+                ScenesController.prototype.slowGeneral = function () {
+                    var index = 0;
+                    while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
+                        this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate - 0.5;
                     }
                 };
                 // Appel de la fonction qui permet de retirer la playlist de la scène
@@ -230,19 +247,19 @@ var Malwok;
             var CategoriesService = (function () {
                 function CategoriesService() {
                     var Ambiances = [
-                        { Id: 1, Name: "Inn", Path: "\Resources\Categories\Ambiances\Inn\tavern_music.mp3" },
-                        { Id: 2, Name: "ElvesForest", Path: "\Resources\Categories\Ambiances\Forest\ElvesForest.mp3" },
-                        { Id: 3, Name: "Town", Path: "\Resources\Categories\Ambiances\Town\MedievalTown.mp3" },
+                        { Id: 1, Name: "Inn", Path: "../../../Resources/Categories/Ambiances/Inn/tavern_music.mp3" },
+                        { Id: 2, Name: "ElvesForest", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Forest\ElvesForest.mp3" },
+                        { Id: 3, Name: "Town", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Town\MedievalTown.mp3" },
                     ];
                     var Swords = [
-                        { Id: 4, Name: "Sword1", Path: "\Resources\Categories\Combat\Sword\sword1.mp3" },
-                        { Id: 5, Name: "Sword2", Path: "\Resources\Categories\Combat\Sword\sword2.mp3" },
-                        { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combat\Sword\sword3.mp3" },
+                        { Id: 4, Name: "Sword1", Path: "../../../Resources/Categories/Combats/Sword/sword1.mp3" },
+                        { Id: 5, Name: "Sword2", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Sword\\sword2.mp3" },
+                        { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combats\Sword\sword3.mp3" },
                     ];
                     var Spells = [
-                        { Id: 7, Name: "FireBall", Path: "\Resources\Categories\Combat\Spell\Fireball.mp3" },
-                        { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combat\Spell\Lightning.mp3" },
-                        { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combat\Spell\Blizzard.mp3" },
+                        { Id: 7, Name: "FireBall", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Spell\\Fireball.mp3" },
+                        { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combats\Spell\Lightning.mp3" },
+                        { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combats\Spell\Blizzard.mp3" },
                     ];
                     var PlaylistsSet1 = [
                         { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
@@ -294,24 +311,23 @@ var Malwok;
             var ScenesService = (function () {
                 function ScenesService() {
                     var Ambiances = [
-                        { Id: 1, Name: "Inn", Path: "\Resources\Categories\Ambiances\Inn\tavern_music.mp3" },
-                        { Id: 2, Name: "ElvesForest", Path: "\Resources\Categories\Ambiances\Forest\ElvesForest.mp3" },
-                        { Id: 3, Name: "Town", Path: "\Resources\Categories\Ambiances\Town\MedievalTown.mp3" },
+                        { Id: 1, Name: "Inn", Path: "../../../Resources/Categories/Ambiances/Inn/tavern_music.mp3" },
+                        { Id: 2, Name: "ElvesForest", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Forest\ElvesForest.mp3" },
+                        { Id: 3, Name: "Town", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Town\MedievalTown.mp3" },
                     ];
                     var Swords = [
-                        { Id: 4, Name: "Sword1", Path: "\Resources\Categories\Combat\Sword\sword1.mp3" },
-                        { Id: 5, Name: "Sword2", Path: "\Resources\Categories\Combat\Sword\sword2.mp3" },
-                        { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combat\Sword\sword3.mp3" },
+                        { Id: 4, Name: "Sword1", Path: "../../../Resources/Categories/Combats/Sword/sword1.mp3" },
+                        { Id: 5, Name: "Sword2", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Sword\\sword2.mp3" },
+                        { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combats\Swords\sword3.mp3" },
                     ];
                     var Spells = [
-                        { Id: 7, Name: "FireBall", Path: "\Resources\Categories\Combat\Spell\Fireball.mp3" },
-                        { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combat\Spell\Lightning.mp3" },
-                        { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combat\Spell\Blizzard.mp3" },
+                        { Id: 7, Name: "FireBall", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Spell\\Fireball.mp3" },
+                        { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combats\Spell\Lightning.mp3" },
+                        { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combats\Spell\Blizzard.mp3" },
                     ];
                     var playLists = [
                         { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
-                        { Id: 2, Name: "Sword", Sounds: Swords, Volume: 50 },
-                        { Id: 3, Name: "Spell", Sounds: Spells, Volume: 50 }
+                        { Id: 2, Name: "Sword", Sounds: Swords, Volume: 50 }
                     ];
                     this.Scene = {
                         Id: 1,
