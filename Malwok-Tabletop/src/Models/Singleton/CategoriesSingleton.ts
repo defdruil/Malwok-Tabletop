@@ -7,7 +7,13 @@
 
         constructor(categoriesService: CategoriesService) {
             this._categoriesService = categoriesService;
-            this.Categories = this._categoriesService.getCategories();
+        }
+
+        public getCategories(): ng.IPromise<Category[]> {
+            return this._categoriesService.getCategories().then((response): Category[] => {
+                this.Categories = response.data;
+                return response.data;
+            });
         }
 
         public Categories: Category[];

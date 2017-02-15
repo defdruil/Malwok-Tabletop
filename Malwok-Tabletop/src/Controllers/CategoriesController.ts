@@ -2,11 +2,14 @@
     'use strict'
     export class CategoriesController {
         //Injection de dépendances
-        static $inject = ['CategoriesSingleton', 'ScenesSingleton'];
+        static $inject = ['CategoriesSingleton', 'ScenesSingleton', 'CategoriesService'];
 
         // Singletons
         public CategoriesSingleton: CategoriesSingleton;
         public ScenesSingleton: ScenesSingleton;
+
+        // Services
+        private _categoriesService: CategoriesService;
 
         // Gestion de la recherche
         public DisplayedCategories: Category[];
@@ -14,23 +17,26 @@
         public NoCategoryDisplayed: boolean;
 
         // Constructeur
-        constructor(categoriesSingleton: CategoriesSingleton, scenesSingleton: ScenesSingleton) {
+        constructor(categoriesSingleton: CategoriesSingleton, scenesSingleton: ScenesSingleton, categoriesService: CategoriesService) {
             // Récupération du static $inject
             this.CategoriesSingleton = categoriesSingleton;
             this.ScenesSingleton = scenesSingleton;
             // Initialisation
             this.SearchedText = "";
-            // Récupération des catégories chargées
-            this.DisplayedCategories = this.CategoriesSingleton.Categories;
-            // Création des propriétés qui gèrent l'affichage
-            this.CategoriesSingleton.Categories.forEach((category): void => {
-                category.HidePlaylists = true;
-                category.Playlists.forEach((playlist): void => {
-                    playlist.IsPlaylistToDisplay = true;
+            // Appel asynchrone, puis après cet appel
+            this.CategoriesSingleton.getCategories().then((categories) => {
+                // Récupération des catégories chargées
+                this.DisplayedCategories = this.CategoriesSingleton.Categories;
+                // Création des propriétés qui gèrent l'affichage
+                this.CategoriesSingleton.Categories.forEach((category): void => {
+                    category.HidePlaylists = true;
+                    category.Playlists.forEach((playlist): void => {
+                        playlist.IsPlaylistToDisplay = true;
+                    });
                 });
+                // Génération du message si la liste est vide (Normalement, ne devrait jamais arriver, sauf erreur ou Server Down (une fois que le service prendra ses infos sur le server))
+                this.CheckCategoriesDisplayed();
             });
-            // Génération du message si la liste est vide (Normalement, ne devrait jamais arriver, sauf erreur ou Server Down (une fois que le service prendra ses infos sur le server))
-            this.CheckCategoriesDisplayed();
         }
 
         // Fonction qui met à jour la liste de catégories/Playlists selon la recherche effectuée
@@ -43,6 +49,7 @@
                 if (category.Name.toLowerCase().indexOf(this.SearchedText.toLowerCase()) !== -1) {
                     // Si oui, on l'ajoute à la liste des catégories à afficher
                     this.DisplayedCategories.push(category);
+                    category.HidePlaylists = true;
                     // Puis, pour chaque Playlist de la catégorie qui match
                     category.Playlists.forEach((playlist): void => {
                         // On indique que les playlist sont à afficher (ne s'affichera que si la catégorie est "ouverte")
@@ -55,6 +62,7 @@
                         if (playlist.Name.toLowerCase().indexOf(this.SearchedText.toLowerCase()) !== -1) {
                             // Si oui, on ajoute la catégorie à la liste des catégories à afficher
                             this.DisplayedCategories.push(category);
+                            category.HidePlaylists = false;
                             // Et on indique que les playlist sont à afficher (ne s'affichera que si la catégorie est "ouverte")
                             playlist.IsPlaylistToDisplay = true;
                         } else {

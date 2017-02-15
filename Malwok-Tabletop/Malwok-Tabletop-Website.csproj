@@ -23,6 +23,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="Assets\planet01.jpg" />
+    <Content Include="Assets\wood01.jpg" />
     <Content Include="gulpfile.js" />
     <Content Include="src\index.html" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -31,6 +33,7 @@
     <Content Include="src\Views\CategoriesView.html" />
     <Content Include="src\Views\PlayListView.html" />
     <Content Include="src\Views\ScenesView.html" />
+    <Content Include="Styles\Custom.css" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
