@@ -8,28 +8,39 @@
                 <div class="well well-lg">
                     <button class="pull-right" ng-click="ScenesCtrl.RemovePlaylist(playlist)">X</button>
                     <h4 ng-bind="playlist.Name"></h4>
-                    <p>Contenu</p>
-                    <audio controls>
-                        <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg" />
-                        <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
-                        <a href="http://www.w3schools.com/html/horse.mp3">horse</a>
-                    </audio>
-
-                </div>
-            </div>
-            <div>
-                <h2>Scene Controls</h2>
-                <div>
-                    <span class="glyphicon glyphicon-play" ng-click="ScenesCtrl.playGeneral()"></span>
-                    <span class="glyphicon glyphicon-pause" ng-click="ScenesCtrl.playGeneral()"></span>
-                    <span class="glyphicon glyphicon-backward" ng-click="ScenesCtrl.slowGeneral()"></span>
-                    <span class="glyphicon glyphicon-forward" ng-click="ScenesCtrl.fastGeneral()"></span>
-                    <span class="glyphicon glyphicon-stop" ng-click="ScenesCtrl.stopGeneral()"></span>
-                </div>
+                    <div>
+                        <p>Fréquence</p>
+                        <span>
+                            min
+                            <input class="freq-input" type="text" ng-model="playlist.MinFrequence"/>
+                        </span>
+                        <span>
+                            max
+                            <input class="freq-input" type="text" ng-model="playlist.MaxFrequence"/>
+                        </span>
+                    </div>
+                    <div ng-repeat="sound in ScenesCtrl.ScenesSingleton.CurrentScene.Playlists.Sounds">
+                        <audio controls>
+                            <source src=sound.Path type="audio/mpeg" />
+                        </audio>
+                    </div>
+                </div>;
             </div>
         <div class="col-xs-12 col-md-12" ng-show="ScenesCtrl.ScenesSingleton.CurrentScene.IsEmpty">
             <div class="well well-lg">
                 <p><= Select a playlist here to add to your scene...</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h2 class="text-center title-main">Scene Controls</h2>
+            <div class="text-center">
+                <span class="glyphicon glyphicon-play" ng-click="ScenesCtrl.playGeneral()"></span>
+                <span class="glyphicon glyphicon-pause" ng-click="ScenesCtrl.playGeneral()"></span>
+                <span class="glyphicon glyphicon-backward" ng-click="ScenesCtrl.slowGeneral()"></span>
+                <span class="glyphicon glyphicon-forward" ng-click="ScenesCtrl.fastGeneral()"></span>
+                <span class="glyphicon glyphicon-stop" ng-click="ScenesCtrl.stopGeneral()"></span>
             </div>
         </div>
     </div>

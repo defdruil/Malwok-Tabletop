@@ -40,11 +40,31 @@
         }
 
         // Vérifie si la Scène est vide, et affiche un message indiquant comment ajouter de nouvelles playlists sinon
-        public CheckIfSceneIsEmpty() {
+        public CheckIfSceneIsEmpty() :void {
             if (this.CurrentScene.Playlists.length != 0)
                 this.CurrentScene.IsEmpty = false;
             else
                 this.CurrentScene.IsEmpty = true;
+        }
+
+        public PlaySceneGeneral():void {
+            for (let play in this.CurrentScene.Playlists) {
+                this.PlayPlayList(play);
+            }
+        }
+
+        public PlayPlayList(playlist):void {
+            let rnd: number = Math.floor(Math.random() * playlist.sound.length);
+            let freq: number = Math.floor(Math.random() * playlist.MaxFrequency) + playlist.MinFrequency;
+            setTimeout(() => {
+                playlist.sound[rnd].play();
+            }, freq);
+            
+            playlist.sound[rnd].DomElement.onended = (): void => {
+                removeEventListener('onended', playlist.sound[rnd].DomElement);
+                this.PlayPlayList(playlist);
+            }
+
         }
 
     }
