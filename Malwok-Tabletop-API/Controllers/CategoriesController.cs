@@ -16,7 +16,7 @@ using System.Web.Http.Cors;
 
 namespace Malwok_Tabletop_API.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors(origins: "http://localhost:60234", headers: "*", methods: "*")]
     [RoutePrefix("api/categories")]
     public class CategoriesController : ApiController
     {
@@ -25,6 +25,13 @@ namespace Malwok_Tabletop_API.Controllers
         public IEnumerable<DTOCategory> GetAllCategories()
         {
             return CategoriesService.GetAllCategories();
+        }
+
+        [Route("hidden/init/bdd")]
+        [HttpGet]
+        public bool InitCategories()
+        {
+            return CategoriesService.ReinitBDD();
         }
     }
 }

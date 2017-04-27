@@ -10,6 +10,8 @@
         // Singleton des scènes (All datas)
         public ScenesSingleton: ScenesSingleton;
 
+        public test: string = "hello !";
+
         constructor(categoriesSingleton: CategoriesSingleton, scenesSingleton: ScenesSingleton) {
             this.CategoriesSingleton = categoriesSingleton;
             this.ScenesSingleton = scenesSingleton;

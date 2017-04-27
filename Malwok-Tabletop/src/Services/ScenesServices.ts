@@ -30,7 +30,7 @@
             this.Scene = <Scene>{
                 Id: 1,
                 Name: "Main Fake Scene",
-                Playlists: playLists
+                Playlists: []
             }
         }
         

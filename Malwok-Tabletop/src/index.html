@@ -13,13 +13,14 @@
 </head>
 <body ng-app="app">
     <div id="content" ng-controller="MainController as ctrl" class="container">
+        <button class="pull-right categorylist" ng-click="ctrl.CategoriesSingleton.promptForInitCategories()">X</button>
         <h1 class="text-center title-main">{{ctrl.ScenesSingleton.CurrentScene.Name}}</h1>
-            <div class="col-xs-5 col-md-3" ng-include="'Views/CategoriesView.html'"></div>
-            <div class="col-xs-7 col-md-9" ng-include="'Views/ScenesView.html'"></div> 
-        </div>
-        <footer>
-            <hr/>
-            <p class="text-center">Tal'Oc Tabletop Audio - 2017 Tous drois réservés.</p>
-        </footer>
+        <div class="col-xs-5 col-md-3" ng-include="'Views/CategoriesView.html'"></div>
+        <div class="col-xs-7 col-md-9" ng-include="'Views/ScenesView.html'"></div>
+    </div>
+    <footer>
+        <hr />
+        <p class="text-center">Tal'Oc Tabletop Audio - 2017 Tous drois réservés.</p>
+    </footer>
 </body>
 </html>

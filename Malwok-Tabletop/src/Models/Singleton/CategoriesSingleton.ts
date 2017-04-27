@@ -16,6 +16,18 @@
             });
         }
 
+        public promptForInitCategories(): void {
+            if (confirm("Êtes-vous sûr de vouloir recréer la base de données ?")) {
+                this.initCategories();
+            }
+        }
+
+        public initCategories(): ng.IPromise<boolean> {
+            return this._categoriesService.initCategories().then((response): boolean => {
+                return response.data;
+            });
+        }
+
         public Categories: Category[];
     }
     app.service("CategoriesSingleton", CategoriesSingleton);

@@ -59,6 +59,10 @@
             return this._httpService.get("http://localhost:51894/api/categories/all");
         }
 
+        public initCategories(): ng.IHttpPromise<boolean> {
+            return this._httpService.get("http://localhost:51894/api/categories/hidden/init/bdd");
+        }
+
         /*public getCategories(): Category[] {
             return this.Categories;
         }*/

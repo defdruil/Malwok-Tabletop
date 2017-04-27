@@ -101,6 +101,7 @@ var Malwok;
             'use strict';
             var MainController = (function () {
                 function MainController(categoriesSingleton, scenesSingleton) {
+                    this.test = "hello !";
                     this.CategoriesSingleton = categoriesSingleton;
                     this.ScenesSingleton = scenesSingleton;
                 }
@@ -300,6 +301,9 @@ var Malwok;
                 CategoriesService.prototype.getCategories = function () {
                     return this._httpService.get("http://localhost:51894/api/categories/all");
                 };
+                CategoriesService.prototype.initCategories = function () {
+                    return this._httpService.get("http://localhost:51894/api/categories/hidden/init/bdd");
+                };
                 return CategoriesService;
             }());
             CategoriesService.$inject = ['$http'];
@@ -340,7 +344,7 @@ var Malwok;
                     this.Scene = {
                         Id: 1,
                         Name: "Main Fake Scene",
-                        Playlists: playLists
+                        Playlists: []
                     };
                 }
                 ScenesService.prototype.getCurrentScene = function () {
@@ -379,6 +383,16 @@ var Malwok;
                     var _this = this;
                     return this._categoriesService.getCategories().then(function (response) {
                         _this.Categories = response.data;
+                        return response.data;
+                    });
+                };
+                CategoriesSingleton.prototype.promptForInitCategories = function () {
+                    if (confirm("Êtes-vous sûr de vouloir recréer la base de données ?")) {
+                        this.initCategories();
+                    }
+                };
+                CategoriesSingleton.prototype.initCategories = function () {
+                    return this._categoriesService.initCategories().then(function (response) {
                         return response.data;
                     });
                 };
