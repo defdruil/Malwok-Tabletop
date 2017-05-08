@@ -51,6 +51,7 @@
 
         public PlaySceneGeneral(): void {
             for (var i = 0; i < this.CurrentScene.Playlists.length; i++){
+                //TODO : faire le systeme de playlist active, stop general
                 this.PlayPlayList(this.CurrentScene.Playlists[i]);
             }
         }
@@ -76,6 +77,18 @@
 
             audio.onpause = function (): void {
                 playlist.Sounds[rnd].DomElement.onended = null;
+            }
+        }
+
+        public PauseSceneGeneral(): void {
+            for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
+                for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++){
+                    let audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString()) as HTMLAudioElement;
+                    if (audio.played) {
+                        audio.onended = null;
+                        audio.pause();
+                    }
+                }
             }
         }
     }

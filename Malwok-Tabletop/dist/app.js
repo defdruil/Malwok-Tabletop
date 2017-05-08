@@ -8,50 +8,6 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
             var CategoriesController = (function () {
                 // Constructeur
                 function CategoriesController(categoriesSingleton, scenesSingleton, categoriesService) {
@@ -193,37 +149,13 @@ var Malwok;
                     // Vérification au chargement pour voir si la scène est vide
                     this.ScenesSingleton.CheckIfSceneIsEmpty();
                 }
-                // Fonction non testée qui devrait lire l'ensemble des playlists chargées.
+                // Fonction qui permet de lire l'ensemble des playlists chargées.
                 ScenesController.prototype.playGeneral = function () {
-                    /*let index: number = 0;
-                    this.IsPlaying = !this.IsPlaying;
-                    while (index < this.ScenesSingleton.CurrentScene.Playlists.length) {
-                        if (!this.IsPlaying) {
-                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.pause();
-                        } else {
-                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement = document.getElementById(this.ScenesSingleton.CurrentScene.Playlists[index].Name + this.ScenesSingleton.CurrentScene.Playlists[index].Id) as HTMLAudioElement;
-                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = 3;
-                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.src = this.ScenesSingleton.CurrentScene.Playlists[index].Sounds[0].Path;
-                            this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.play();
-                            //this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.msPlayToSource = this.ScenesSingleton.CurrentScene.Playlists[index].Sounds[1].Path;
-                        }
-                        index ++;
-                    }*/
                     this.ScenesSingleton.PlaySceneGeneral();
                 };
-                // Fonction non testée qui devrait accelerer l'ensemble des playlists chargées.
-                ScenesController.prototype.fastGeneral = function () {
-                    var index = 0;
-                    //while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
-                    //    this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate + 0.5;
-                    //}
-                };
-                // Fonction non testée qui devrait ralentir l'ensemble des playlists chargées.
-                ScenesController.prototype.slowGeneral = function () {
-                    var index = 0;
-                    //while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
-                    //    this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate - 0.5;
-                    //}
+                // Fonction qui permet de lire l'ensemble des playlists chargées.
+                ScenesController.prototype.pauseGeneral = function () {
+                    this.ScenesSingleton.PauseSceneGeneral();
                 };
                 // Appel de la fonction qui permet de retirer la playlist de la scène
                 ScenesController.prototype.RemovePlaylist = function (playlist) {
@@ -235,6 +167,50 @@ var Malwok;
             ScenesController.$inject = ['ScenesSingleton'];
             Website.ScenesController = ScenesController;
             app.controller("ScenesController", ScenesController);
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
@@ -444,6 +420,7 @@ var Malwok;
                 };
                 ScenesSingleton.prototype.PlaySceneGeneral = function () {
                     for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
+                        //TODO : faire le systeme de playlist active, pause general, stop general
                         this.PlayPlayList(this.CurrentScene.Playlists[i]);
                     }
                 };
@@ -467,6 +444,17 @@ var Malwok;
                     audio.onpause = function () {
                         playlist.Sounds[rnd].DomElement.onended = null;
                     };
+                };
+                ScenesSingleton.prototype.PauseSceneGeneral = function () {
+                    for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
+                        for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++) {
+                            var audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString());
+                            if (audio.played) {
+                                audio.onended = null;
+                                audio.pause();
+                            }
+                        }
+                    }
                 };
                 return ScenesSingleton;
             }());
