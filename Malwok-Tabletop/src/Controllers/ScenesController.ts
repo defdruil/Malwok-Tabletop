@@ -28,6 +28,10 @@
             this.ScenesSingleton.PauseSceneGeneral();
         }
 
+        public stopGeneral(): void {
+            this.ScenesSingleton.StopSceneGeneral();
+        }
+
         // Appel de la fonction qui permet de retirer la playlist de la scène
         public RemovePlaylist(playlist: Playlist) {
             this.ScenesSingleton.RemovePlaylist(playlist);

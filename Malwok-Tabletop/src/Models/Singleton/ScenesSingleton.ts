@@ -85,8 +85,21 @@
                 for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++){
                     let audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString()) as HTMLAudioElement;
                     if (audio.played) {
-                        audio.onended = null;
                         audio.pause();
+                        audio.onended = null;
+                    }
+                }
+            }
+        }
+
+        public StopSceneGeneral(): void {
+            for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
+                for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++) {
+                    let audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString()) as HTMLAudioElement;
+                    if (audio.played) {
+                        audio.pause();
+                        audio.onended = null;
+                        audio.currentTime = 0;
                     }
                 }
             }

@@ -157,6 +157,9 @@ var Malwok;
                 ScenesController.prototype.pauseGeneral = function () {
                     this.ScenesSingleton.PauseSceneGeneral();
                 };
+                ScenesController.prototype.stopGeneral = function () {
+                    this.ScenesSingleton.StopSceneGeneral();
+                };
                 // Appel de la fonction qui permet de retirer la playlist de la scène
                 ScenesController.prototype.RemovePlaylist = function (playlist) {
                     this.ScenesSingleton.RemovePlaylist(playlist);
@@ -420,7 +423,7 @@ var Malwok;
                 };
                 ScenesSingleton.prototype.PlaySceneGeneral = function () {
                     for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
-                        //TODO : faire le systeme de playlist active, pause general, stop general
+                        //TODO : faire le systeme de playlist active, stop general
                         this.PlayPlayList(this.CurrentScene.Playlists[i]);
                     }
                 };
@@ -452,6 +455,17 @@ var Malwok;
                             if (audio.played) {
                                 audio.onended = null;
                                 audio.pause();
+                            }
+                        }
+                    }
+                };
+                ScenesSingleton.prototype.StopSceneGeneral = function () {
+                    for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
+                        for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++) {
+                            var audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString());
+                            if (audio.played) {
+                                audio.pause();
+                                audio.currentTime = 0;
                             }
                         }
                     }
