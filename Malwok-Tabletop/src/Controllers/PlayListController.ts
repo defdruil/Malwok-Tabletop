@@ -9,12 +9,12 @@
         constructor() {
         }
 
-        public PlayPauseButtonPressed(): void{
-            if (this.playlist.DomElement.paused)
-                this.playlist.DomElement.play();
-            else
-                this.playlist.DomElement.pause();
-        }
+        //public PlayPauseButtonPressed(audio: HTMLAudioElement): void{
+        //    if (audio.paused)
+        //        audio.play();
+        //    else
+        //        audio.pause();
+        //}
     }
     app.controller("PlayListController", PlayListController);
 }

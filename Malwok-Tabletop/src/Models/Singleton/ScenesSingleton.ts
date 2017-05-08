@@ -9,6 +9,7 @@
         // Propriétés du Singleton
         public Scenes: Scene[];
         public CurrentScene: Scene;
+        private self: ScenesSingleton;
 
         constructor(scenesService: ScenesService) {
             // Récupération du $inject
@@ -16,6 +17,7 @@
             // Renseignement des listes depuis le service
             this.CurrentScene = this._scenesService.getCurrentScene();
             this.Scenes = this._scenesService.getAllScenes();
+            this.self = this;
         }
 
         // Fonction qui duplique la playlist passée, afin d'éviter les objets dupliqués dans la scène (qui provoquent des erreurs de ng-repeat)
@@ -47,26 +49,35 @@
                 this.CurrentScene.IsEmpty = true;
         }
 
-        public PlaySceneGeneral():void {
-            for (let play in this.CurrentScene.Playlists) {
-                this.PlayPlayList(play);
+        public PlaySceneGeneral(): void {
+            for (var i = 0; i < this.CurrentScene.Playlists.length; i++){
+                this.PlayPlayList(this.CurrentScene.Playlists[i]);
             }
         }
 
-        public PlayPlayList(playlist):void {
-            let rnd: number = Math.floor(Math.random() * playlist.sound.length);
-            let freq: number = Math.floor(Math.random() * playlist.MaxFrequency) + playlist.MinFrequency;
-            setTimeout(() => {
-                playlist.sound[rnd].play();
-            }, freq);
-            
-            playlist.sound[rnd].DomElement.onended = (): void => {
-                removeEventListener('onended', playlist.sound[rnd].DomElement);
-                this.PlayPlayList(playlist);
+        public PlayPlayList(playlist: Playlist): void {
+            let rnd: number = Math.floor(Math.random() * playlist.Sounds.length);
+            if (playlist.MaxFrequency == undefined){
+                playlist.MaxFrequency = 3;
+            }
+            if (playlist.MinFrequency == undefined){
+                playlist.MinFrequency = 1;
+            }
+            let freq: number = (Math.floor(Math.random() * playlist.MaxFrequency) + playlist.MinFrequency)*1000;
+            let audio = document.getElementById(playlist.Sounds[rnd].Id.toString()) as HTMLAudioElement;
+            audio.play();
+            var that = this;
+
+            audio.onended = function (): void {
+                setTimeout(() => {
+                    that.PlayPlayList(playlist);
+                }, freq);
             }
 
+            audio.onpause = function (): void {
+                playlist.Sounds[rnd].DomElement.onended = null;
+            }
         }
-
     }
     app.service("ScenesSingleton", ScenesSingleton);
 }

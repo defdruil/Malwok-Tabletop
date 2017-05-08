@@ -12,18 +12,15 @@
                         <p>Fréquence</p>
                         <span>
                             min
-                            <input class="freq-input" type="text" ng-model="playlist.MinFrequence"/>
+                            <input class="freq-input" type="text" ng-model="playlist.MinFrequency" value="0"/>
                         </span>
                         <span>
                             max
-                            <input class="freq-input" type="text" ng-model="playlist.MaxFrequence"/>
+                            <input class="freq-input" type="text" ng-model="playlist.MaxFrequency" value="0"/>
                         </span>
                     </div>
                     <div ng-repeat="sound in playlist.Sounds">
-                        <audio controls>
-                            <pre>
-{{ sound }}
-</pre>
+                        <audio controls id="{{sound.Id}}">
                             <source src="{{sound.Path}}" type="audio/mpeg" />
                         </audio>
                     </div>

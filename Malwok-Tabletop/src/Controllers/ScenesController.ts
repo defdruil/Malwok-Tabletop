@@ -20,7 +20,7 @@
 
         // Fonction non testée qui devrait lire l'ensemble des playlists chargées.
         public playGeneral(): void {
-            let index: number = 0;
+            /*let index: number = 0;
             this.IsPlaying = !this.IsPlaying;
             while (index < this.ScenesSingleton.CurrentScene.Playlists.length) {
                 if (!this.IsPlaying) {
@@ -33,26 +33,27 @@
                     //this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.msPlayToSource = this.ScenesSingleton.CurrentScene.Playlists[index].Sounds[1].Path;
                 }
                 index ++;
-            }
+            }*/
+            this.ScenesSingleton.PlaySceneGeneral();
         }
 
         // Fonction non testée qui devrait accelerer l'ensemble des playlists chargées.
         public fastGeneral(): void {
             let index: number = 0;
-            while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
-                this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate + 0.5;
+            //while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
+            //    this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate + 0.5;
 
-            }
+            //}
 
         }
 
         // Fonction non testée qui devrait ralentir l'ensemble des playlists chargées.
         public slowGeneral(): void {
             let index: number = 0;
-            while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
-                this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate - 0.5;
+            //while (index <= this.ScenesSingleton.CurrentScene.Playlists.length) {
+            //    this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate = this.ScenesSingleton.CurrentScene.Playlists[index].DomElement.playbackRate - 0.5;
 
-            }
+            //}
 
         }
 

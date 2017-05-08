@@ -7,7 +7,7 @@
         Volume?: number;
         MinFrequency?: number;
         MaxFrequency?: number;
-        DomElement?: HTMLAudioElement;
         IsPlaylistToDisplay?: boolean;
+
     }
 }

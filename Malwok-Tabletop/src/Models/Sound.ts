@@ -4,5 +4,6 @@
         Name: string;
         Id: number;
         Path: string;
+        DomElement?: HTMLAudioElement;
     }
 }
