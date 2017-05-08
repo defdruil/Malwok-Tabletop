@@ -4,6 +4,7 @@
         Name: string;
         Id: number;
         Sounds: Sound[];
+        ActivatedSounds: Sound[];
         Volume?: number;
         MinFrequency?: number;
         MaxFrequency?: number;

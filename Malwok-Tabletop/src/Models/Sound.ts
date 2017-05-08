@@ -5,5 +5,6 @@
         Id: number;
         Path: string;
         DomElement?: HTMLAudioElement;
+        Active: Boolean;
     }
 }

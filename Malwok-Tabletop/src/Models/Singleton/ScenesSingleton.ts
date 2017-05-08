@@ -32,6 +32,7 @@
             this.CurrentScene.Playlists.push(playlistToAdd);
             // Mise à jour du message d'aide si il était affiché
             this.CheckIfSceneIsEmpty();
+            this.PreparePlayListForPlaying(playlist);
         }
 
         public RemovePlaylist(playlist: Playlist): void {
@@ -57,33 +58,35 @@
         }
 
         public PlayPlayList(playlist: Playlist): void {
-            let rnd: number = Math.floor(Math.random() * playlist.Sounds.length);
+            let rnd: number = Math.floor(Math.random() * playlist.ActivatedSounds.length);
             if (playlist.MaxFrequency == undefined){
                 playlist.MaxFrequency = 3;
             }
             if (playlist.MinFrequency == undefined){
                 playlist.MinFrequency = 1;
             }
-            let freq: number = (Math.floor(Math.random() * playlist.MaxFrequency) + playlist.MinFrequency)*1000;
-            let audio = document.getElementById(playlist.Sounds[rnd].Id.toString()) as HTMLAudioElement;
+            let freq: number = (Math.floor(Math.random() * playlist.MaxFrequency) + playlist.MinFrequency) * 1000;
+            let audio = document.getElementById(playlist.ActivatedSounds[rnd].Id.toString()) as HTMLAudioElement;
             audio.play();
+
             var that = this;
 
             audio.onended = function (): void {
+                audio.currentTime = 0;
                 setTimeout(() => {
                     that.PlayPlayList(playlist);
                 }, freq);
             }
 
             audio.onpause = function (): void {
-                playlist.Sounds[rnd].DomElement.onended = null;
+                playlist.ActivatedSounds[rnd].DomElement.onended = null;
             }
         }
 
         public PauseSceneGeneral(): void {
             for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
-                for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++){
-                    let audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString()) as HTMLAudioElement;
+                for (var j = 0; j < this.CurrentScene.Playlists[i].ActivatedSounds.length; j++){
+                    let audio = document.getElementById(this.CurrentScene.Playlists[i].ActivatedSounds[j].Id.toString()) as HTMLAudioElement;
                     if (audio.played) {
                         audio.pause();
                         audio.onended = null;
@@ -94,8 +97,8 @@
 
         public StopSceneGeneral(): void {
             for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
-                for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++) {
-                    let audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString()) as HTMLAudioElement;
+                for (var j = 0; j < this.CurrentScene.Playlists[i].ActivatedSounds.length; j++) {
+                    let audio = document.getElementById(this.CurrentScene.Playlists[i].ActivatedSounds[j].Id.toString()) as HTMLAudioElement;
                     if (audio.played) {
                         audio.pause();
                         audio.onended = null;
@@ -104,6 +107,14 @@
                 }
             }
         }
+        public PreparePlayListForPlaying(playlist: Playlist): void {
+            playlist.ActivatedSounds = [];
+            for (var i = 0; i < playlist.Sounds.length; i++) {
+                if (playlist.Sounds[i].Active) {
+                    playlist.ActivatedSounds.push(playlist.Sounds[i]);
+                }
+        }
+    }
     }
     app.service("ScenesSingleton", ScenesSingleton);
 }

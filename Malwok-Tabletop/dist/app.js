@@ -181,96 +181,51 @@ var Malwok;
         var Website;
         (function (Website) {
             'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
-        })(Website = Tabletop.Website || (Tabletop.Website = {}));
-    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
-})(Malwok || (Malwok = {}));
-
-var Malwok;
-(function (Malwok) {
-    var Tabletop;
-    (function (Tabletop) {
-        var Website;
-        (function (Website) {
-            'use strict';
             var CategoriesService = (function () {
                 function CategoriesService(http) {
                     this._httpService = http;
-                    var Ambiances = [
-                        { Id: 1, Name: "Inn", Path: "../../../Resources/Categories/Ambiances/Inn/tavern_music.mp3" },
-                        { Id: 2, Name: "ElvesForest", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Forest\ElvesForest.mp3" },
-                        { Id: 3, Name: "Town", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Town\MedievalTown.mp3" },
-                    ];
-                    var Swords = [
-                        { Id: 4, Name: "Sword1", Path: "../../../Resources/Categories/Combats/Sword/sword1.mp3" },
-                        { Id: 5, Name: "Sword2", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Sword\\sword2.mp3" },
-                        { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combats\Sword\sword3.mp3" },
-                    ];
-                    var Spells = [
-                        { Id: 7, Name: "FireBall", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Spell\\Fireball.mp3" },
-                        { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combats\Spell\Lightning.mp3" },
-                        { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combats\Spell\Blizzard.mp3" },
-                    ];
-                    var PlaylistsSet1 = [
-                        { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
-                        { Id: 2, Name: "Sword", Sounds: Swords, Volume: 50 }
-                    ];
-                    var PlaylistsSet2 = [
-                        { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
-                        { Id: 3, Name: "Spell", Sounds: Spells, Volume: 50 }
-                    ];
-                    // Initializing
-                    this.Categories = [];
-                    var id = 1;
-                    while (id <= 5) {
-                        if (id == 1 || id == 2) {
-                            this.Categories.push({
-                                Id: id,
-                                Name: id + " - Fake category",
-                                Playlists: PlaylistsSet1
-                            });
-                        }
-                        else {
-                            this.Categories.push({
-                                Id: id,
-                                Name: id + " - Fake category",
-                                Playlists: PlaylistsSet2
-                            });
-                        }
-                        id++;
-                    }
+                    //let Ambiances: Sound[] = [
+                    //    { Id: 1, Name: "Inn", Path: "../../../Resources/Categories/Ambiances/Inn/tavern_music.mp3", Activate: false },
+                    //    { Id: 2, Name: "ElvesForest", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Forest\ElvesForest.mp3", Activate: false },
+                    //    { Id: 3, Name: "Town", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Town\MedievalTown.mp3", Activate: false },
+                    //];
+                    //let Swords: Sound[] = [
+                    //    { Id: 4, Name: "Sword1", Path: "../../../Resources/Categories/Combats/Sword/sword1.mp3", Activate: false },
+                    //    { Id: 5, Name: "Sword2", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Sword\\sword2.mp3", Activate: false },
+                    //    { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combats\Sword\sword3.mp3", Activate: false },
+                    //];
+                    //let Spells: Sound[] = [
+                    //    { Id: 7, Name: "FireBall", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Spell\\Fireball.mp3", Activate: false },
+                    //    { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combats\Spell\Lightning.mp3", Activate: false },
+                    //    { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combats\Spell\Blizzard.mp3", Activate: false },
+                    //];
+                    //let PlaylistsSet1: Playlist[] = [
+                    //    { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
+                    //    { Id: 2, Name: "Sword", Sounds: Swords, Volume: 50 }
+                    //];
+                    //let PlaylistsSet2: Playlist[] = [
+                    //    { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
+                    //    { Id: 3, Name: "Spell", Sounds: Spells, Volume: 50 }
+                    //];
+                    //// Initializing
+                    //this.Categories = [];
+                    //let id: number = 1;
+                    //while (id <= 5) {
+                    //    if (id == 1 || id == 2) {
+                    //        this.Categories.push(<Category>{
+                    //            Id: id,
+                    //            Name: id + " - Fake category",
+                    //            Playlists: PlaylistsSet1
+                    //        });
+                    //    } else {
+                    //        this.Categories.push(<Category>{
+                    //            Id: id,
+                    //            Name: id + " - Fake category",
+                    //            Playlists: PlaylistsSet2
+                    //        });
+                    //    }
+                    //    id++;
+                    //}
                 }
                 CategoriesService.prototype.getCategories = function () {
                     return this._httpService.get("http://localhost:51894/api/categories/all");
@@ -296,25 +251,25 @@ var Malwok;
             'use strict';
             var ScenesService = (function () {
                 function ScenesService() {
-                    var Ambiances = [
-                        { Id: 1, Name: "Inn", Path: "../../../Resources/Categories/Ambiances/Inn/tavern_music.mp3" },
-                        { Id: 2, Name: "ElvesForest", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Forest\ElvesForest.mp3" },
-                        { Id: 3, Name: "Town", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Town\MedievalTown.mp3" },
-                    ];
-                    var Swords = [
-                        { Id: 4, Name: "Sword1", Path: "../../../Resources/Categories/Combats/Sword/sword1.mp3" },
-                        { Id: 5, Name: "Sword2", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Sword\\sword2.mp3" },
-                        { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combats\Swords\sword3.mp3" },
-                    ];
-                    var Spells = [
-                        { Id: 7, Name: "FireBall", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Spell\\Fireball.mp3" },
-                        { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combats\Spell\Lightning.mp3" },
-                        { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combats\Spell\Blizzard.mp3" },
-                    ];
-                    var playLists = [
-                        { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
-                        { Id: 2, Name: "Sword", Sounds: Swords, Volume: 50 }
-                    ];
+                    //let Ambiances: Sound[] = [
+                    //    { Id: 1, Name: "Inn", Path: "../../../Resources/Categories/Ambiances/Inn/tavern_music.mp3", Activate: false },
+                    //    { Id: 2, Name: "ElvesForest", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Forest\ElvesForest.mp3", Activate: false },
+                    //    { Id: 3, Name: "Town", Path: "..\\..\\..\\Resources\\Categories\\Ambiances\\Town\MedievalTown.mp3", Activate: false },
+                    //];
+                    //let Swords: Sound[] = [
+                    //    { Id: 4, Name: "Sword1", Path: "../../../Resources/Categories/Combats/Sword/sword1.mp3", Activate: false },
+                    //    { Id: 5, Name: "Sword2", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Sword\\sword2.mp3", Activate: false },
+                    //    { Id: 6, Name: "Sword3", Path: "\Resources\Categories\Combats\Swords\sword3.mp3", Activate: false },
+                    //];
+                    //let Spells: Sound[] = [
+                    //    { Id: 7, Name: "FireBall", Path: "..\\..\\..\\Resources\\Categories\\Combats\\Spell\\Fireball.mp3", Activate: false },
+                    //    { Id: 8, Name: "Lightning", Path: "\Resources\Categories\Combats\Spell\Lightning.mp3", Activate: false },
+                    //    { Id: 9, Name: "Blizzard", Path: "\Resources\Categories\Combats\Spell\Blizzard.mp3", Activate: false },
+                    //];
+                    //let playLists: Playlist[] = [
+                    //    { Id: 1, Name: "Ambiance", Sounds: Ambiances, Volume: 50 },
+                    //    { Id: 2, Name: "Sword", Sounds: Swords, Volume: 50 }
+                    //];
                     this.Scene = {
                         Id: 1,
                         Name: "Main Fake Scene",
@@ -338,6 +293,50 @@ var Malwok;
             }());
             Website.ScenesService = ScenesService;
             app.service("ScenesService", ScenesService);
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
+        })(Website = Tabletop.Website || (Tabletop.Website = {}));
+    })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
+})(Malwok || (Malwok = {}));
+
+var Malwok;
+(function (Malwok) {
+    var Tabletop;
+    (function (Tabletop) {
+        var Website;
+        (function (Website) {
+            'use strict';
         })(Website = Tabletop.Website || (Tabletop.Website = {}));
     })(Tabletop = Malwok.Tabletop || (Malwok.Tabletop = {}));
 })(Malwok || (Malwok = {}));
@@ -407,6 +406,7 @@ var Malwok;
                     this.CurrentScene.Playlists.push(playlistToAdd);
                     // Mise à jour du message d'aide si il était affiché
                     this.CheckIfSceneIsEmpty();
+                    this.PreparePlayListForPlaying(playlist);
                 };
                 ScenesSingleton.prototype.RemovePlaylist = function (playlist) {
                     // Suppression de la playlist de la scène en cours
@@ -428,7 +428,7 @@ var Malwok;
                     }
                 };
                 ScenesSingleton.prototype.PlayPlayList = function (playlist) {
-                    var rnd = Math.floor(Math.random() * playlist.Sounds.length);
+                    var rnd = Math.floor(Math.random() * playlist.ActivatedSounds.length);
                     if (playlist.MaxFrequency == undefined) {
                         playlist.MaxFrequency = 3;
                     }
@@ -436,37 +436,47 @@ var Malwok;
                         playlist.MinFrequency = 1;
                     }
                     var freq = (Math.floor(Math.random() * playlist.MaxFrequency) + playlist.MinFrequency) * 1000;
-                    var audio = document.getElementById(playlist.Sounds[rnd].Id.toString());
+                    var audio = document.getElementById(playlist.ActivatedSounds[rnd].Id.toString());
                     audio.play();
                     var that = this;
                     audio.onended = function () {
+                        audio.currentTime = 0;
                         setTimeout(function () {
                             that.PlayPlayList(playlist);
                         }, freq);
                     };
                     audio.onpause = function () {
-                        playlist.Sounds[rnd].DomElement.onended = null;
+                        playlist.ActivatedSounds[rnd].DomElement.onended = null;
                     };
                 };
                 ScenesSingleton.prototype.PauseSceneGeneral = function () {
                     for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
-                        for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++) {
-                            var audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString());
+                        for (var j = 0; j < this.CurrentScene.Playlists[i].ActivatedSounds.length; j++) {
+                            var audio = document.getElementById(this.CurrentScene.Playlists[i].ActivatedSounds[j].Id.toString());
                             if (audio.played) {
-                                audio.onended = null;
                                 audio.pause();
+                                audio.onended = null;
                             }
                         }
                     }
                 };
                 ScenesSingleton.prototype.StopSceneGeneral = function () {
                     for (var i = 0; i < this.CurrentScene.Playlists.length; i++) {
-                        for (var j = 0; j < this.CurrentScene.Playlists[i].Sounds.length; j++) {
-                            var audio = document.getElementById(this.CurrentScene.Playlists[i].Sounds[j].Id.toString());
+                        for (var j = 0; j < this.CurrentScene.Playlists[i].ActivatedSounds.length; j++) {
+                            var audio = document.getElementById(this.CurrentScene.Playlists[i].ActivatedSounds[j].Id.toString());
                             if (audio.played) {
                                 audio.pause();
+                                audio.onended = null;
                                 audio.currentTime = 0;
                             }
+                        }
+                    }
+                };
+                ScenesSingleton.prototype.PreparePlayListForPlaying = function (playlist) {
+                    playlist.ActivatedSounds = [];
+                    for (var i = 0; i < playlist.Sounds.length; i++) {
+                        if (playlist.Sounds[i].Active) {
+                            playlist.ActivatedSounds.push(playlist.Sounds[i]);
                         }
                     }
                 };

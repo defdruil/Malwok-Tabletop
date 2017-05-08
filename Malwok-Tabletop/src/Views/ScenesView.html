@@ -20,7 +20,8 @@
                         </span>
                     </div>
                     <div ng-repeat="sound in playlist.Sounds">
-                        <audio controls id="{{sound.Id}}">
+                        <div><input type="checkbox" ng-model="sound.Active" ng-change="ScenesCtrl.ScenesSingleton.PreparePlayListForPlaying(playlist);" style="float: right;"/></div>
+                        <audio class="disabled" controls id="{{sound.Id}} ng-class="{'disabled': !sound.active}">
                             <source src="{{sound.Path}}" type="audio/mpeg" />
                         </audio>
                     </div>
